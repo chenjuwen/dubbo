@@ -3,6 +3,7 @@ package com.study.dubbo.provider.service;
 import org.springframework.stereotype.Component;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import com.study.dubbo.api.bean.Address;
 import com.study.dubbo.api.bean.User;
 import com.study.dubbo.api.service.UserService;
 
@@ -15,5 +16,10 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User getUser(long id) {
 		return new User(id, "cjm", "123");
+	}
+	
+	@Override
+	public void updateAddress(Address address) {
+		System.out.println(address.getProvince() + ", " + address.getCity());
 	}
 }

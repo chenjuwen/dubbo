@@ -1,5 +1,6 @@
 package com.study.dubbo.api.service;
 
+import com.study.dubbo.api.bean.Address;
 import com.study.dubbo.api.bean.User;
 
 /**
@@ -7,4 +8,5 @@ import com.study.dubbo.api.bean.User;
  */
 public interface UserService {
 	public User getUser(long id);
+	public void updateAddress(Address address);
 }

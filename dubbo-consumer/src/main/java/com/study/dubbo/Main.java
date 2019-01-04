@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.study.dubbo.api.bean.Address;
 import com.study.dubbo.api.bean.User;
 import com.study.dubbo.consumer.service.ServiceConsumer;
 
@@ -22,6 +23,11 @@ public class Main{
 	
 	@RequestMapping("/index")
     public String greeting() {
+		Address address = new Address();
+		address.setProvince("GuangDong");
+		address.setCity("GuangZhou");
+		serviceConsumer.getUserService().updateAddress(address);
+		
 		User user = serviceConsumer.getUserService().getUser(110L);
         return "hello consumer: username=" + user.getUsername() + ", password=" + user.getPassword() + ", nowtime=" + user.getNowtime();
     }
